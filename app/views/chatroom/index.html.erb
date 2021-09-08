@@ -8,23 +8,19 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
          <div class="ui comments">
+         <% @messages.each do |message| %>
             <div class="comment">
-              <a class="avatar">
-                <img src="/images/avatar/small/matt.jpg">
-              </a>
               <div class="content">
-                <a class="author">Matt</a>
+                <%= link_to message.user.username, class: "author" %>
                 <div class="metadata">
-                  <span class="date">Today at 5:42PM</span>
+                  <span class="date"><%= time_ago_in_words(message.updated_at) %></span>
                 </div>
                 <div class="text">
-                  How artistic!
-                </div>
-                <div class="actions">
-                  <a class="reply">Reply</a>
+                  <%= message.body %>
                 </div>
               </div>
             </div>
+            <% end %>
           </div>
         </div>
         <div class="extra content">
