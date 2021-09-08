@@ -7,6 +7,14 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'jquery'
+import 'semantic-ui-sass'
+
+$(document).on('turbolinks:load', function(){
+  $('.ui.dropdown')
+  .dropdown()
+;
+})
 
 Rails.start()
 Turbolinks.start()
