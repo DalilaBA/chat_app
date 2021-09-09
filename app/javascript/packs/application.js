@@ -11,9 +11,10 @@ import 'jquery'
 import 'semantic-ui-sass'
 
 $(document).on('turbolinks:load', function(){
-  $('.ui.dropdown')
-  .dropdown()
-;
+  $('.ui.dropdown').dropdown();
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
 })
 
 Rails.start()
