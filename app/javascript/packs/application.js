@@ -10,13 +10,22 @@ import "channels"
 import 'jquery'
 import 'semantic-ui-sass'
 
+
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
+window.scroll_bottom = function() {
+  if ($('#msg').length > 0){
+    $('#msg').scrollTop($('#msg')[0].scrollHeight);
+  }
+}
+
 $(document).on('turbolinks:load', function(){
   $('.ui.dropdown').dropdown();
   $('.message .close').on('click', function() {
     $(this).closest('.message').transition('fade');
   });
+  scroll_bottom();
 })
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
