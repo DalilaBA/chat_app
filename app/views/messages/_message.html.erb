@@ -1,0 +1,11 @@
+ <div class="comment">
+  <div class="content">
+    <%= link_to message.user.username, class: "author" %>
+    <div class="metadata">
+      <span class="date"><%= time_ago_in_words(message.updated_at) %></span>
+    </div>
+    <div class="text">
+      <%= message.body %>
+    </div>
+  </div>
+</div>
