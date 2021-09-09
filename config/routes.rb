@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   post 'message', to:'messages#create'
+
+  mount ActionCable.server, at: '/cable' #communication via that route will be possible in my app
 end
