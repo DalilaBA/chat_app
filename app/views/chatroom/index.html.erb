@@ -1,44 +1,45 @@
+<br>
 <h4 class="ui center aligned icon header">
   <i class=" orange circular comments icon"></i>
   Say something
 </h4>
-
-<div class="ui two column grid">
-  <div class="twelve wide column">
-    <div class="ui fluid raised card chatbox">
-      <div class="content" id ="msg">
-         <div class="ui comments" id ="message_container">
-            <%= render @messages %>
+<br>
+    <div class="ui stackable two column divided grid container">
+     <div class="row centered">
+      <div class="twelve wide column">
+          <div class="ui segment fluid raised card chatbox">
+            <div class="content" id ="msg">
+              <div class="ui comments" id ="message_container">
+                  <%= render @messages %>
+                </div>
+              </div>
+              <div class="extra content">
+                <%= form_for(@message, html: {class: "ui reply form"}, url: message_path, remote: true) do |f| %>
+                  <div class="field">
+                    <div class="ui fluid icon input">
+                      <%= f.text_field :body %>
+                      <%= f.button '<i class=" bordered inverted orange edit icon edit"></i>'.html_safe, style: "display: none" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="two wide column">
+            <div class="ui segment fluid raied card chatbox"> 
+              <div class="content">
+                <div class="ui vertical text menu">
+                  <div class="header item">Users liste</div>
+                    <% @users.each do |user| %>
+                    <a class="active item">
+                    <%= user.username %>
+                    </a>
+                    <% end %>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="extra content">
-              <%= form_for(@message, html: {class: "ui reply form"}, url: message_path, remote: true) do |f| %>
-                <div class="field">
-                  <div class="ui fluid icon input">
-                    <%= f.text_field :body %>
-                    <%= f.button '<i class=" bordered inverted orange edit icon edit"></i>'.html_safe, style: "display: none" %>
-                     
-                  </div>
-                </div>
-              <% end %>
-            </div>
-      </div>
-    </div>
-   
-
-  <div class="four wide column">
-  <div class="ui fluid raied card chatbox"> 
-    <div class="content">
-    <div class="ui vertical text menu">
-      <div class="header item">Users liste</div>
-        <% @users.each do |user| %>
-        <a class="active item">
-         <%= user.username %>
-        </a>
-        <% end %>
-    </div>
-  </div>
-    </div>
-  </div>
     
+</div>
 </div>
