@@ -30,16 +30,12 @@
   <div class="ui fluid raied card chatbox"> 
     <div class="content">
     <div class="ui vertical text menu">
-      <div class="header item">Sort By</div>
+      <div class="header item">Users liste</div>
+        <% @users.each do |user| %>
         <a class="active item">
-          Closest
+         <%= user.username %>
         </a>
-        <a class="item">
-          Most Comments
-        </a>
-        <a class="item">
-          Most Popular
-        </a>
+        <% end %>
     </div>
   </div>
     </div>
