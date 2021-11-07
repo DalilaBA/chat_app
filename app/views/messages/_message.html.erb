@@ -1,6 +1,11 @@
 <div class="comment">
   <div class="content">
-    <%= link_to message.user.username, class: "author" %>
+    <%= link_to user_path(message.user) do %>
+      <div class='ui image label'>
+          <%= image_tag ("avatar.png") %>
+          <%= message.user.username %>
+      </div>
+      <% end %>
     <div class="metadata">
       <span class="date"><%= time_ago_in_words(message.updated_at) %></span>
     </div>

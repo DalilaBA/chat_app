@@ -13,17 +13,12 @@
           Kristy is an art director living in New York.
         </div>
       </div>
-      <div class="extra content">
-        <a>
-          <i class="user icon"></i>
-          22 Friends
-        </a>
-      </div>
-      <hr>
+      <div class="extra content"></div>
+      <br>
       <div class="two column container">
         <div class="row centered">
-        <%= link_to "Edit", edit_user_path(current_user),class: "ui column primary button"  %>
         <% if current_user.id == @user.id %>
+        <%= link_to "Edit", edit_user_path(current_user),class: "ui column primary button"  %>
         <%= link_to "Delete", user_path(current_user),class: "ui column button", method: :delete, data: {confirm: "are you sure?!"}  %>
         <%end %>
       </div>

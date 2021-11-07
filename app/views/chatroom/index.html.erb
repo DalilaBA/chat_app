@@ -32,7 +32,7 @@
                   <div class="header item">Users liste</div>
                     <% @users.each do |user| %>
                     <a class="active item">
-                    <%= user.username %>
+                    <%= link_to user.username, user_path(user) %>
                     </a>
                     <% end %>
                   </div>
