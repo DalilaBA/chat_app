@@ -14,7 +14,7 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
 
   def add_avatar
     user = current_user
-    user.image_name = params[:avatar]
+    user.image_name = params[:image_name]
     if user.save
       flash[:notice] ="you had an image attached"
       redirect_to user_path(current_user)
@@ -82,7 +82,7 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
 
 
   def user_params
-    params.require(:user).permit(:username, :password, :avatar, :description)
+    params.require(:user).permit(:username, :password, :image_name, :description)
   end
   def require_own_user
     if current_user !=@user && !current_user.admin?

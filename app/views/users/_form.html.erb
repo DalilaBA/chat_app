@@ -25,6 +25,32 @@
                         <i class="lock icon"></i>
                       </div>
                     </div>
+<div class="ui mini images">
+                    <div class="ui three column doubling grid container">
+      <div class="row centered">
+        <div class="two wide column">
+          <%= f.radio_button :image_name, "avatar" %>
+          <%= f.label :avatar, image_tag("avatar.png") %>
+        </div>
+        <div class="two wide column">
+          <%= f.radio_button :image_name, "avatar_2" %>
+          <%= f.label :avatar_2, image_tag("avatar_2.png") %>
+        </div>
+        <div class="two wide column">
+          <%= f.radio_button :image_name, "avatar_4" %>
+          <%= f.label :avatar_4, image_tag("avatar_4.png") %>
+        </div>
+        <div class="two wide column">
+          <%= f.radio_button :image_name, "avatar_5" %>
+          <%= f.label :avatar_5, image_tag("avatar_5.png") %>
+        </div>
+        <div class="two wide column">
+          <%= f.radio_button :image_name, "avatar_6" %>
+          <%= f.label :avatar_6, image_tag("avatar_6.png") %>
+        </div>
+      </div>
+      </div>
+    </div>
                     <%= f.submit(@user.new_record? ? "Sign Up" : "update account" ,class: "ui orange submit button" )%>
             <% end %>
         </div>
