@@ -8,6 +8,22 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
     @user = User.new
   end
 
+  def avatar
+  
+  end
+
+  def add_avatar
+    user = current_user
+    user.image_name = params[:avatar]
+    if user.save
+      flash[:notice] ="you had an image attached"
+      redirect_to user_path(current_user)
+    else
+      flash[:alert] ="There was a pb"
+      redirect_to user_path(current_user)
+    end
+  end
+
   def show
     # @user.avatar.attach(params[:avatar])
     # byebug
@@ -29,7 +45,7 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] ="Welcom #{@user.username} to the Developement blog, you have successfully sign up"
-      redirect_to @user
+      redirect_to avatar_path(current_user)
     else
       render 'new'
     end
@@ -58,13 +74,15 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
   end
 
   private
+  
+
   def set_user
     @user = User.find(params[:id])
   end
 
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :avatar)
   end
   def require_own_user
     if current_user !=@user && !current_user.admin?

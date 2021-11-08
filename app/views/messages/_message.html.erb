@@ -2,10 +2,10 @@
   <div class="content">
     <%= link_to user_path(message.user) do %>
       <div class='ui image label'>
-          <%= image_tag ("avatar.png") %>
-          <%= message.user.username %>
+        <%= image_tag (message.user.image_name) %>
+        <%= message.user.username %>
       </div>
-      <% end %>
+    <% end %>
     <div class="metadata">
       <span class="date"><%= time_ago_in_words(message.updated_at) %></span>
     </div>
