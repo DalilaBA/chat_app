@@ -82,7 +82,7 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
 
 
   def user_params
-    params.require(:user).permit(:username, :password, :avatar)
+    params.require(:user).permit(:username, :password, :avatar, :description)
   end
   def require_own_user
     if current_user !=@user && !current_user.admin?

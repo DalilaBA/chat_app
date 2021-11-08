@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_07_094647) do
+ActiveRecord::Schema.define(version: 2021_11_08_115629) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_07_094647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_name"
+    t.string "description"
   end
 
 end

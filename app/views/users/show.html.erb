@@ -10,7 +10,7 @@
           <span class="date">Joinded at <%= time_ago_in_words(current_user.created_at) %></span>
         </div>
         <div class="description">
-          Kristy is an art director living in New York.
+          <%= @user.description.present? ? @user.description : "No Desription yet" %>
         </div>
       </div>
       <div class="extra content"></div>
