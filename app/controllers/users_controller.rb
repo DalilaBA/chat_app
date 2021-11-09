@@ -9,17 +9,16 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
   end
 
   def avatar
-  
   end
 
   def add_avatar
     user = current_user
     user.image_name = params[:image_name]
     if user.save
-      flash[:notice] ="you had an image attached"
+      flash[:success] ="you had an image attached"
       redirect_to user_path(current_user)
     else
-      flash[:alert] ="There was a pb"
+      flash[:error] ="There was a problem"
       redirect_to user_path(current_user)
     end
   end
@@ -32,10 +31,6 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
 
     
   end
-  def index
-    # @users = User.all
-    @users = User.paginate(page: params[:page], per_page: 3)
-  end
 
   def create
     # byebug
@@ -44,17 +39,18 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] ="Welcom #{@user.username} to the Developement blog, you have successfully sign up"
-      redirect_to avatar_path(current_user)
+      flash[:success] ="Welcom #{@user.username} to Chat with me you have successfully sign up"
+      redirect_to avatar_path
     else
-      render 'new'
+      flash[:error] ="The username #{@user.username} Already existe"
+      redirect_to signup_path
     end
   end
 
   def destroy
     @user.destroy
     session[:user_id] = nil if @user == current_user
-    flash[:notice] = "Your account and all associated articles has been successfully deleted"
+    flash[:success] = "Your account and all associated mesageses has been successfully deleted"
     redirect_to root_path
   end
 
@@ -66,7 +62,7 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
     # @user.avatar.attach(params[:avatar])
     # byebug
     if @user.update(user_params)
-      flash[:notice] = "Your account information was successfuly updated"
+      flash[:success] = "Your account information was successfuly updated"
       redirect_to @user
     else
       render 'edit'
@@ -84,9 +80,10 @@ before_action :require_own_user, only: [:edit, :update, :destroy]
   def user_params
     params.require(:user).permit(:username, :password, :image_name, :description)
   end
+  
   def require_own_user
     if current_user !=@user && !current_user.admin?
-      flash[:alert] = "You can only edit or delete your own profile"
+      flash[:error] = "You can only edit or delete your own profile"
       redirect_to @user
     end
   end

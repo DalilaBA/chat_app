@@ -11,7 +11,6 @@
                   <i class="user icon"></i>
                 </div>
               </div>
-              
               <div class="field">
                 <%= f.label :password %>
                 <div class="ui left icon input">
@@ -23,11 +22,10 @@
               <div class="field">
                 <%= f.label :description %>
                 <div class="ui left icon input">
-                  <%= f.text_field :description %>
-                  <i class="user icon"></i>
+                  <%= f.text_area :description, size: "70x4" %>
                 </div>
               </div>
-                <%= f.label "Update you're avatar" %>
+                <%= f.label "Update you're avatar", style: "font-weight: bold" %>
                   <br><br>
                   <div class="ui mini images">
                     <div class="ui three column doubling grid container">
@@ -44,6 +42,12 @@
                           <%= f.radio_button :image_name, "avatar_4" %>
                           <%= f.label :avatar_4, image_tag("avatar_4.png") %>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui mini images">
+                    <div class="ui three column doubling grid container">
+                      <div class="row centered">
                         <div class="two wide column">
                           <%= f.radio_button :image_name, "avatar_5" %>
                           <%= f.label :avatar_5, image_tag("avatar_5.png") %>

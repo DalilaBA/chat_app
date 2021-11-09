@@ -2,7 +2,7 @@
   <div class="row centered">
     <div class="ui card">
       <div class="image">
-        <%= image_tag (@user.image_name) %>
+        <%= image_tag @user.image_name? ? @user.image_name : "avatar_default" %>
       </div>
       <div class="content">
         <a class="header"><%= @user.username %></a>

@@ -1,4 +1,4 @@
-<h2 class="ui header">Choose an avatars</h2>
+<h2 class="ui center aligned header">Choose an avatars</h2>
 <br><br><br><br>
 <div class="ui small images">
   <%= form_with url:"/add_avatar", method: :get ,class: "ui form" do |f| %>
@@ -28,7 +28,9 @@
     </div>
     <br><br><br><br>
     <div class="ui text container center aligned field">
-      <%= f.submit "Sign Up" ,class: "ui orange submit button" %>
+      <%= f.submit "Save" ,class: "ui orange submit button" %>
+      <%= link_to  "Pass" , root_path ,class: "ui submit button" %>
+
     </div>  
   <% end %>
 </div>

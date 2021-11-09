@@ -2,7 +2,7 @@
   <div class="content">
     <%= link_to user_path(message.user) do %>
       <div class='ui image label'>
-        <%= image_tag (message.user.image_name) %>
+        <%= image_tag message.user.image_name? ? message.user.image_name : "avatar_default" %>
         <%= message.user.username %>
       </div>
     <% end %>
