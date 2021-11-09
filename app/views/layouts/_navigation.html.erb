@@ -4,7 +4,7 @@
 <div class="right menu">
    <% if logged_in? %>
       <div class="ui dropdown item">
-         <%= image_tag current_user.image_name, size: "5px" %>
+         <%= image_tag current_user.image_name? ? current_user.image_name : "" , size: "5px" %>
          <%= current_user.username %> <i class="dropdown icon"></i>
          <div class="menu">
                <%= link_to "Log out", logout_path,method: :delete, class: "item"  %>
